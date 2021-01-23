@@ -45,7 +45,7 @@
             try
             {
                 dbContext.Fields.Add(field);
-                 SaveChanges();
+                SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@
             try
             {
                 dbContext.Contents.Add(content);
-                 SaveChanges();
+                SaveChanges();
                 return true;
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@
 
         public int[] GetFieldsByFile(int idFile)
         {
-            return dbContext.Fields.Where(x => x.IdFile == idFile).Select(x=>x.Id).ToArray();
+            return dbContext.Fields.Where(x => x.IdFile == idFile).Select(x => x.Id).ToArray();
         }
 
         public IEnumerable<Field> GetIdFieldsByFile(int idFile)
@@ -121,7 +121,7 @@
 
         public Content GetContentByIdField(int idField)
         {
-            return dbContext.Contents.Where(x=>x.IdField==idField).OrderBy(x=>x.FieldContent).FirstOrDefault();
+            return dbContext.Contents.Where(x => x.IdField == idField).OrderBy(x => x.FieldContent).FirstOrDefault();
         }
     }
 }
