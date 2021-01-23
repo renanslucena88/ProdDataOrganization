@@ -121,7 +121,7 @@
 
         public Content GetContentByIdField(int idField)
         {
-            return dbContext.Contents.FirstOrDefault(x=>x.IdField==idField);
+            return dbContext.Contents.Where(x=>x.IdField==idField).OrderBy(x=>x.FieldContent).FirstOrDefault();
         }
     }
 }
