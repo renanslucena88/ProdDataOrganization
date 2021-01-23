@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProdDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldContent" Type="varchar" MaxLength="100" />
+          <Property Name="IdField" Type="int" />
+        </EntityType>
+        <EntityType Name="Field">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Field" Type="varchar" MaxLength="90" />
+          <Property Name="IdFile" Type="int" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Field_PK_Content_2">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="IdField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Field_PK_File">
+          <End Role="File" Type="Self.File" Multiplicity="0..1" />
+          <End Role="Field" Type="Self.Field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Field">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProdDataModelStoreContainer">
+          <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Field" EntityType="Self.Field" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Field_PK_Content_2" Association="Self.FK_Field_PK_Content_2">
+            <End Role="Field" EntitySet="Field" />
+            <End Role="Content" EntitySet="Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Field_PK_File" Association="Self.FK_Field_PK_File">
+            <End Role="File" EntitySet="File" />
+            <End Role="Field" EntitySet="Field" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProdDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldContent" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdField" Type="Int32" />
+          <NavigationProperty Name="Field" Relationship="Self.FK_Field_PK_Content_2" FromRole="Content" ToRole="Field" />
+        </EntityType>
+        <EntityType Name="Field">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Field1" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="IdFile" Type="Int32" />
+          <NavigationProperty Name="Contents" Relationship="Self.FK_Field_PK_Content_2" FromRole="Field" ToRole="Content" />
+          <NavigationProperty Name="File" Relationship="Self.FK_Field_PK_File" FromRole="Field" ToRole="File" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fields" Relationship="Self.FK_Field_PK_File" FromRole="File" ToRole="Field" />
+        </EntityType>
+        <Association Name="FK_Field_PK_Content_2">
+          <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+          <End Role="Content" Type="Self.Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Field">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Content">
+              <PropertyRef Name="IdField" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Field_PK_File">
+          <End Role="File" Type="Self.File" Multiplicity="0..1" />
+          <End Role="Field" Type="Self.Field" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Field">
+              <PropertyRef Name="IdFile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProdDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contents" EntityType="Self.Content" />
+          <EntitySet Name="Fields" EntityType="Self.Field" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <AssociationSet Name="FK_Field_PK_Content_2" Association="Self.FK_Field_PK_Content_2">
+            <End Role="Field" EntitySet="Fields" />
+            <End Role="Content" EntitySet="Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Field_PK_File" Association="Self.FK_Field_PK_File">
+            <End Role="File" EntitySet="Files" />
+            <End Role="Field" EntitySet="Fields" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProdDataModelStoreContainer" CdmEntityContainer="ProdDataEntities">
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="ProdDataModel.Content">
+              <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FieldContent" ColumnName="FieldContent" />
+                <ScalarProperty Name="IdField" ColumnName="IdField" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fields">
+            <EntityTypeMapping TypeName="ProdDataModel.Field">
+              <MappingFragment StoreEntitySet="Field">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Field1" ColumnName="Field" />
+                <ScalarProperty Name="IdFile" ColumnName="IdFile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="ProdDataModel.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
