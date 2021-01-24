@@ -234,13 +234,17 @@
             List<Content> lstValueFile1 = new List<Content>();
             List<Content> lstValueFile2 = new List<Content>();
 
+            //Get radioButton and Checkbox
+
+            bool orderCres = rbOrderCres.Checked;
+            bool orderDec = rbOrderDec.Checked;
+            bool withoutZero = cbWithoutZero.Checked;
+
             ProdDataChart1.Series.Clear();
             var selectedRow = dataGridViewField1.SelectedRows;
 
             if (selectedRow.Count > 0)
             {
-                StringBuilder sb = new StringBuilder();
-
                 //Get selected fields. There are 2 Id columns in Field Grid. 1 ID column for each file selected.
                 for (int i = 0; i < selectedRow.Count; i++)
                 {
@@ -251,13 +255,13 @@
                 //
                 foreach (var item in dicValueFieldsFile1)
                 {
-                    var tmpField = business.GetContentByIdField(item.Key);
+                    var tmpField = business.GetContentByIdField(item.Key, orderCres, orderDec, withoutZero);
                     lstValueFile1.Add(tmpField);
                 }
 
                 foreach (var item in dicValueFieldsFile2)
                 {
-                    var tmpField = business.GetContentByIdField(item.Key);
+                    var tmpField = business.GetContentByIdField(item.Key, orderCres, orderDec, withoutZero);
                     lstValueFile2.Add(tmpField);
                 }
 
@@ -281,6 +285,7 @@
                         if (double.TryParse(item.FieldContent, out double tmpContent))
                         {
                             ProdDataChart1.Series[1].Points.Add(tmpContent);
+                            ProdDataChart1.Series[1].LegendText = item.FieldContent;
                         }
 
                     }
@@ -294,6 +299,12 @@
             ProdAnalBusiness business = new ProdAnalBusiness();
             business.DeleteAllRegisters();
             MessageBox.Show("All Registers deleted");
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            ProdAnalBusiness business = new ProdAnalBusiness();
+            business.DeleteAllRegisters();
         }
     }
 }
