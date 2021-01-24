@@ -6,7 +6,7 @@
     using System.Linq;
 
     /// <summary>
-    /// Defines the <see cref="ProdAnalBusiness" />.
+    /// Defines the <see cref="ProdAnalBusiness" />. VIADAO
     /// </summary>
     internal class ProdAnalBusiness
     {
