@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProdDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProdDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Content">
           <Key>
             <PropertyRef Name="Id" />
@@ -12,6 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FieldContent" Type="varchar" MaxLength="100" />
           <Property Name="IdField" Type="int" />
+          <Property Name="Line" Type="int" />
         </EntityType>
         <EntityType Name="Field">
           <Key>
@@ -65,8 +66,7 @@
             <End Role="Field" EntitySet="Field" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProdDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -78,6 +78,7 @@
           <Property Name="FieldContent" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IdField" Type="Int32" />
           <NavigationProperty Name="Field" Relationship="Self.FK_Field_PK_Content_2" FromRole="Content" ToRole="Field" />
+          <Property Name="Line" Type="Int32" />
         </EntityType>
         <EntityType Name="Field">
           <Key>
@@ -143,6 +144,7 @@
           <EntitySetMapping Name="Contents">
             <EntityTypeMapping TypeName="ProdDataModel.Content">
               <MappingFragment StoreEntitySet="Content">
+                <ScalarProperty Name="Line" ColumnName="Line" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FieldContent" ColumnName="FieldContent" />
                 <ScalarProperty Name="IdField" ColumnName="IdField" />

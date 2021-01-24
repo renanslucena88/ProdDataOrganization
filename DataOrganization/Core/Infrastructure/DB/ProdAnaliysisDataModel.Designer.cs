@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\renan\Documents\Desenvolvimento\RodrigoBorges_WinForm\repos\DataOrganization\DataOrganization\Core\Infrastructure\DB\ProdAnaliysisDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Github\ProdDataOrganization\DataOrganization\Core\Infrastructure\DB\ProdAnaliysisDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
@@ -8,4 +8,3 @@
 // classes for your model, open the model in the designer, right-click on the designer surface, and
 // select 'Update Model from Database...', 'Generate Database from Model...', or 'Add Code Generation
 // Item...'.
-

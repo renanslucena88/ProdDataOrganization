@@ -10,30 +10,15 @@
 namespace DataOrganization.Core.Infrastructure.DB
 {
     using System;
-
-    /// <summary>
-    /// Defines the <see cref="Content" />.
-    /// </summary>
+    using System.Collections.Generic;
+    
     public partial class Content
     {
-        /// <summary>
-        /// Gets or sets the Id.
-        /// </summary>
         public int Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the FieldContent.
-        /// </summary>
         public string FieldContent { get; set; }
-
-        /// <summary>
-        /// Gets or sets the IdField.
-        /// </summary>
         public Nullable<int> IdField { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Field.
-        /// </summary>
+        public Nullable<int> Line { get; set; }
+    
         public virtual Field Field { get; set; }
     }
 }

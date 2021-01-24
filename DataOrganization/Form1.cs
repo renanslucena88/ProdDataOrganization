@@ -71,7 +71,7 @@
                     //Read CSV
                     var lines = System.IO.File.ReadAllLines(dest);
 
-                    //Good pratices to clear the cache
+                    //Good pratices to clear the cache before use a database transaction
                     business.SaveChanges();
 
                     //Delete the file upload after save and read the lines
@@ -110,7 +110,7 @@
                             var arrContent = item.Split(',');
                             for (int i = 0; i < arrContent.Length; i++)
                             {
-                                business.InsertContent(tmpIdFields[i], arrContent[i]);
+                                business.InsertContent(tmpIdFields[i], arrContent[i], firstTime);
                             }
                         }
                         firstTime++;
@@ -234,6 +234,7 @@
             List<Content> lstValueFile1 = new List<Content>();
             List<Content> lstValueFile2 = new List<Content>();
 
+            ProdDataChart1.Series.Clear();
             var selectedRow = dataGridViewField1.SelectedRows;
 
             if (selectedRow.Count > 0)
@@ -260,12 +261,12 @@
                     lstValueFile2.Add(tmpField);
                 }
 
-                if (lstValueFile1.Count>0)
+                if (lstValueFile1.Count > 0)
                 {
                     ProdDataChart1.Series.Add(lstValueFile1[0].Field.File.Name);
                     foreach (var item in lstValueFile1)
                     {
-                        if (double.TryParse(item.FieldContent,out double tmpContent))
+                        if (double.TryParse(item.FieldContent, out double tmpContent))
                         {
                             ProdDataChart1.Series[0].Points.Add(tmpContent);
                         }
@@ -284,8 +285,15 @@
 
                     }
                 }
-                
+
             }
+        }
+
+        public void DeleteAllRegisters()
+        {
+            ProdAnalBusiness business = new ProdAnalBusiness();
+            business.DeleteAllRegisters();
+            MessageBox.Show("All Registers deleted");
         }
     }
 }

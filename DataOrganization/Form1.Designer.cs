@@ -31,7 +31,7 @@ namespace DataOrganization
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdAnal1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnLoadAll = new System.Windows.Forms.Button();
@@ -39,16 +39,17 @@ namespace DataOrganization
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewFile1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewField1 = new System.Windows.Forms.DataGridView();
-            this.IdFieldFile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdFieldFile2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLoadFields = new System.Windows.Forms.Button();
             this.ProdDataChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.progressBarProdAnal = new System.Windows.Forms.ProgressBar();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerateChart = new System.Windows.Forms.Button();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.IdFieldFile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdFieldFile2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFile1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewField1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataChart1)).BeginInit();
@@ -63,7 +64,7 @@ namespace DataOrganization
             this.btnUpload.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
             this.btnUpload.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.Image")));
             this.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpload.Location = new System.Drawing.Point(12, 12);
+            this.btnUpload.Location = new System.Drawing.Point(12, 63);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(153, 65);
             this.btnUpload.TabIndex = 0;
@@ -77,9 +78,9 @@ namespace DataOrganization
             this.btnLoadAll.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadAll.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadAll.Image")));
             this.btnLoadAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadAll.Location = new System.Drawing.Point(12, 83);
+            this.btnLoadAll.Location = new System.Drawing.Point(438, 227);
             this.btnLoadAll.Name = "btnLoadAll";
-            this.btnLoadAll.Size = new System.Drawing.Size(153, 46);
+            this.btnLoadAll.Size = new System.Drawing.Size(142, 46);
             this.btnLoadAll.TabIndex = 2;
             this.btnLoadAll.Text = "Refresh";
             this.btnLoadAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -128,6 +129,23 @@ namespace DataOrganization
             this.dataGridViewFile1.TabIndex = 6;
             this.dataGridViewFile1.SelectionChanged += new System.EventHandler(this.dataGridViewProdAnal1_SelectionChanged);
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // FileName
+            // 
+            this.FileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.FileName.HeaderText = "File Name";
+            this.FileName.MinimumWidth = 6;
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            // 
             // dataGridViewField1
             // 
             this.dataGridViewField1.AllowUserToAddRows = false;
@@ -145,6 +163,61 @@ namespace DataOrganization
             this.dataGridViewField1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewField1.Size = new System.Drawing.Size(614, 360);
             this.dataGridViewField1.TabIndex = 7;
+            // 
+            // btnLoadFields
+            // 
+            this.btnLoadFields.Location = new System.Drawing.Point(470, 319);
+            this.btnLoadFields.Name = "btnLoadFields";
+            this.btnLoadFields.Size = new System.Drawing.Size(64, 89);
+            this.btnLoadFields.TabIndex = 8;
+            this.btnLoadFields.Text = ">>";
+            this.btnLoadFields.UseVisualStyleBackColor = true;
+            this.btnLoadFields.Click += new System.EventHandler(this.btnLoadFields_Click);
+            // 
+            // ProdDataChart1
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.ProdDataChart1.ChartAreas.Add(chartArea3);
+            this.ProdDataChart1.Location = new System.Drawing.Point(45, 526);
+            this.ProdDataChart1.Name = "ProdDataChart1";
+            this.ProdDataChart1.Size = new System.Drawing.Size(1139, 269);
+            this.ProdDataChart1.TabIndex = 9;
+            this.ProdDataChart1.Text = "Production Analysis";
+            // 
+            // progressBarProdAnal
+            // 
+            this.progressBarProdAnal.Location = new System.Drawing.Point(415, 88);
+            this.progressBarProdAnal.Name = "progressBarProdAnal";
+            this.progressBarProdAnal.Size = new System.Drawing.Size(453, 40);
+            this.progressBarProdAnal.Step = 1;
+            this.progressBarProdAnal.TabIndex = 10;
+            // 
+            // btnGenerateChart
+            // 
+            this.btnGenerateChart.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
+            this.btnGenerateChart.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateChart.Image")));
+            this.btnGenerateChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerateChart.Location = new System.Drawing.Point(404, 464);
+            this.btnGenerateChart.Name = "btnGenerateChart";
+            this.btnGenerateChart.Size = new System.Drawing.Size(204, 56);
+            this.btnGenerateChart.TabIndex = 11;
+            this.btnGenerateChart.Text = "Generate Chart";
+            this.btnGenerateChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerateChart.UseVisualStyleBackColor = true;
+            this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
+            // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
+            this.btnDeleteAll.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAll.Image")));
+            this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAll.Location = new System.Drawing.Point(210, 63);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(148, 65);
+            this.btnDeleteAll.TabIndex = 12;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
             // 
             // IdFieldFile1
             // 
@@ -170,70 +243,12 @@ namespace DataOrganization
             this.FieldName.ReadOnly = true;
             this.FieldName.Width = 125;
             // 
-            // btnLoadFields
-            // 
-            this.btnLoadFields.Location = new System.Drawing.Point(470, 319);
-            this.btnLoadFields.Name = "btnLoadFields";
-            this.btnLoadFields.Size = new System.Drawing.Size(64, 89);
-            this.btnLoadFields.TabIndex = 8;
-            this.btnLoadFields.Text = ">>";
-            this.btnLoadFields.UseVisualStyleBackColor = true;
-            this.btnLoadFields.Click += new System.EventHandler(this.btnLoadFields_Click);
-            // 
-            // ProdDataChart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.ProdDataChart1.ChartAreas.Add(chartArea1);
-            this.ProdDataChart1.Location = new System.Drawing.Point(45, 526);
-            this.ProdDataChart1.Name = "ProdDataChart1";
-            this.ProdDataChart1.Size = new System.Drawing.Size(1139, 269);
-            this.ProdDataChart1.TabIndex = 9;
-            this.ProdDataChart1.Text = "Production Analysis";
-            // 
-            // progressBarProdAnal
-            // 
-            this.progressBarProdAnal.Location = new System.Drawing.Point(592, 37);
-            this.progressBarProdAnal.Name = "progressBarProdAnal";
-            this.progressBarProdAnal.Size = new System.Drawing.Size(453, 40);
-            this.progressBarProdAnal.Step = 1;
-            this.progressBarProdAnal.TabIndex = 10;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // FileName
-            // 
-            this.FileName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.FileName.HeaderText = "File Name";
-            this.FileName.MinimumWidth = 6;
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
-            // 
-            // btnGenerateChart
-            // 
-            this.btnGenerateChart.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.btnGenerateChart.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateChart.Image")));
-            this.btnGenerateChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerateChart.Location = new System.Drawing.Point(404, 464);
-            this.btnGenerateChart.Name = "btnGenerateChart";
-            this.btnGenerateChart.Size = new System.Drawing.Size(204, 56);
-            this.btnGenerateChart.TabIndex = 11;
-            this.btnGenerateChart.Text = "Generate Chart";
-            this.btnGenerateChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGenerateChart.UseVisualStyleBackColor = true;
-            this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
-            // 
             // FormProdAnal1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1752, 1055);
+            this.Controls.Add(this.btnDeleteAll);
             this.Controls.Add(this.btnGenerateChart);
             this.Controls.Add(this.progressBarProdAnal);
             this.Controls.Add(this.ProdDataChart1);
@@ -268,14 +283,15 @@ namespace DataOrganization
         private System.Windows.Forms.DataGridView dataGridViewFile1;
         private System.Windows.Forms.DataGridView dataGridViewField1;
         private System.Windows.Forms.Button btnLoadFields;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FieldName;
         private System.Windows.Forms.DataVisualization.Charting.Chart ProdDataChart1;
         private System.Windows.Forms.ProgressBar progressBarProdAnal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
         private System.Windows.Forms.Button btnGenerateChart;
+        private System.Windows.Forms.Button btnDeleteAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FieldName;
     }
 }
 

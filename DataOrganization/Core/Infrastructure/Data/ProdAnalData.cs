@@ -119,9 +119,21 @@
             return dbContext.Files.ToList();
         }
 
-        public Content GetContentByIdField(int idField)
+        public List<Content> GetContentByIdField(int idField)
         {
-            return dbContext.Contents.Where(x => x.IdField == idField).OrderBy(x => x.FieldContent).FirstOrDefault();
+            return dbContext.Contents.Where(x => x.IdField == idField).ToList();
+        }
+
+        public void DeleteAllRegisters()
+        {
+            dbContext.Contents.RemoveRange(dbContext.Contents.ToList());
+            dbContext.SaveChanges();
+
+            dbContext.Fields.RemoveRange(dbContext.Fields.ToList());
+            dbContext.SaveChanges();
+
+            dbContext.Files.RemoveRange(dbContext.Files.ToList());
+            dbContext.SaveChanges();
         }
     }
 }

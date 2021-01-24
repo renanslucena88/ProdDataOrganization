@@ -153,7 +153,11 @@
       <LastGenOutput>ProdAnaliysisDataModel.cs</LastGenOutput>
     </Content>
     <Content Include="ProdData.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProdData_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ProdData.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

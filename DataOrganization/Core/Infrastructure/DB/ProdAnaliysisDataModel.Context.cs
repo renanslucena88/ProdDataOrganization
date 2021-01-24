@@ -9,44 +9,24 @@
 
 namespace DataOrganization.Core.Infrastructure.DB
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    /// <summary>
-    /// Defines the <see cref="ProdDataEntities" />.
-    /// </summary>
+    
     public partial class ProdDataEntities : DbContext
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProdDataEntities"/> class.
-        /// </summary>
         public ProdDataEntities()
             : base("name=ProdDataEntities")
         {
         }
-
-        /// <summary>
-        /// The OnModelCreating.
-        /// </summary>
-        /// <param name="modelBuilder">The modelBuilder<see cref="DbModelBuilder"/>.</param>
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
-        /// <summary>
-        /// Gets or sets the Contents.
-        /// </summary>
+    
         public virtual DbSet<Content> Contents { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Fields.
-        /// </summary>
         public virtual DbSet<Field> Fields { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Files.
-        /// </summary>
         public virtual DbSet<File> Files { get; set; }
     }
 }

@@ -9,35 +9,20 @@
 
 namespace DataOrganization.Core.Infrastructure.DB
 {
+    using System;
     using System.Collections.Generic;
-
-    /// <summary>
-    /// Defines the <see cref="File" />.
-    /// </summary>
+    
     public partial class File
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="File"/> class.
-        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public File()
         {
             this.Fields = new HashSet<Field>();
         }
-
-        /// <summary>
-        /// Gets or sets the Id.
-        /// </summary>
+    
         public int Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Name.
-        /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Fields.
-        /// </summary>
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Field> Fields { get; set; }
     }

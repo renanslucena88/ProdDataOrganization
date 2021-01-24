@@ -49,13 +49,14 @@
         /// <param name="idField">The idField<see cref="int"/>.</param>
         /// <param name="contentValue">The contentValue<see cref="string"/>.</param>
         /// <returns>The <see cref="bool"/>.</returns>
-        public bool InsertContent(int idField, string contentValue)
+        public bool InsertContent(int idField, string contentValue, int line)
         {
             ProdAnalData data = new ProdAnalData();
             Content content = new Content
             {
                 FieldContent = contentValue,
-                IdField = idField
+                IdField = idField,
+                Line = line
             };
 
             return data.InsertContent(content);
@@ -89,16 +90,42 @@
             return data.GetAllFields();
         }
 
-        public Content GetContentByIdField(int idField)
+        public Content GetContentByIdField(int idField, bool orderByCre = false, bool orderByDesc = false, bool withoutZero = false)
         {
             ProdAnalData data = new ProdAnalData();
-            return data.GetContentByIdField(idField);
+            List<Content> lstContent = data.GetContentByIdField(idField);
+
+            if (orderByCre)
+            {
+                if (withoutZero)
+                {
+                    return lstContent.OrderBy(x => x.FieldContent).FirstOrDefault(x => x.FieldContent != "0");
+                }
+                return lstContent.OrderBy(x => x.FieldContent).FirstOrDefault();
+            }
+            if (orderByDesc)
+            {
+                if (withoutZero)
+                {
+                    return lstContent.OrderByDescending(x => x.FieldContent).FirstOrDefault(x => x.FieldContent != "0");
+                }
+            }
+
+            return lstContent.OrderByDescending(x => x.FieldContent).FirstOrDefault();
+
+
         }
 
         public void SaveChanges()
         {
             ProdAnalData data = new ProdAnalData();
             data.SaveChanges();
+        }
+
+        public void DeleteAllRegisters()
+        {
+            ProdAnalData data = new ProdAnalData();
+            data.DeleteAllRegisters();
         }
     }
 }
