@@ -31,7 +31,7 @@ namespace DataOrganization
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdAnal1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnLoadAll = new System.Windows.Forms.Button();
@@ -50,6 +50,9 @@ namespace DataOrganization
             this.IdFieldFile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdFieldFile2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbWithoutZero = new System.Windows.Forms.CheckBox();
+            this.rbOrderCres = new System.Windows.Forms.RadioButton();
+            this.rbOrderDec = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFile1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewField1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataChart1)).BeginInit();
@@ -176,8 +179,8 @@ namespace DataOrganization
             // 
             // ProdDataChart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.ProdDataChart1.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.ProdDataChart1.ChartAreas.Add(chartArea1);
             this.ProdDataChart1.Location = new System.Drawing.Point(45, 526);
             this.ProdDataChart1.Name = "ProdDataChart1";
             this.ProdDataChart1.Size = new System.Drawing.Size(1139, 269);
@@ -218,6 +221,7 @@ namespace DataOrganization
             this.btnDeleteAll.Text = "Delete All";
             this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // IdFieldFile1
             // 
@@ -243,11 +247,46 @@ namespace DataOrganization
             this.FieldName.ReadOnly = true;
             this.FieldName.Width = 125;
             // 
+            // cbWithoutZero
+            // 
+            this.cbWithoutZero.AutoSize = true;
+            this.cbWithoutZero.Location = new System.Drawing.Point(1281, 186);
+            this.cbWithoutZero.Name = "cbWithoutZero";
+            this.cbWithoutZero.Size = new System.Drawing.Size(90, 21);
+            this.cbWithoutZero.TabIndex = 13;
+            this.cbWithoutZero.Text = "Sem zero";
+            this.cbWithoutZero.UseVisualStyleBackColor = true;
+            // 
+            // rbOrderCres
+            // 
+            this.rbOrderCres.AutoSize = true;
+            this.rbOrderCres.Location = new System.Drawing.Point(1281, 266);
+            this.rbOrderCres.Name = "rbOrderCres";
+            this.rbOrderCres.Size = new System.Drawing.Size(93, 21);
+            this.rbOrderCres.TabIndex = 14;
+            this.rbOrderCres.TabStop = true;
+            this.rbOrderCres.Text = "Crescente";
+            this.rbOrderCres.UseVisualStyleBackColor = true;
+            // 
+            // rbOrderDec
+            // 
+            this.rbOrderDec.AutoSize = true;
+            this.rbOrderDec.Location = new System.Drawing.Point(1281, 294);
+            this.rbOrderDec.Name = "rbOrderDec";
+            this.rbOrderDec.Size = new System.Drawing.Size(109, 21);
+            this.rbOrderDec.TabIndex = 15;
+            this.rbOrderDec.TabStop = true;
+            this.rbOrderDec.Text = "Decrescente";
+            this.rbOrderDec.UseVisualStyleBackColor = true;
+            // 
             // FormProdAnal1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1752, 1055);
+            this.Controls.Add(this.rbOrderDec);
+            this.Controls.Add(this.rbOrderCres);
+            this.Controls.Add(this.cbWithoutZero);
             this.Controls.Add(this.btnDeleteAll);
             this.Controls.Add(this.btnGenerateChart);
             this.Controls.Add(this.progressBarProdAnal);
@@ -292,6 +331,9 @@ namespace DataOrganization
         private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdFieldFile2;
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldName;
+        private System.Windows.Forms.CheckBox cbWithoutZero;
+        private System.Windows.Forms.RadioButton rbOrderCres;
+        private System.Windows.Forms.RadioButton rbOrderDec;
     }
 }
 
