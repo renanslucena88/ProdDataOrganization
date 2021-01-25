@@ -42,17 +42,18 @@ namespace DataOrganization
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewField1 = new System.Windows.Forms.DataGridView();
+            this.IdFieldFile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdFieldFile2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLoadFields = new System.Windows.Forms.Button();
             this.ProdDataChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.progressBarProdAnal = new System.Windows.Forms.ProgressBar();
             this.btnGenerateChart = new System.Windows.Forms.Button();
             this.btnDeleteAll = new System.Windows.Forms.Button();
-            this.IdFieldFile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdFieldFile2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbWithoutZero = new System.Windows.Forms.CheckBox();
             this.rbOrderCres = new System.Windows.Forms.RadioButton();
             this.rbOrderDec = new System.Windows.Forms.RadioButton();
+            this.btnLogo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFile1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewField1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDataChart1)).BeginInit();
@@ -67,9 +68,10 @@ namespace DataOrganization
             this.btnUpload.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
             this.btnUpload.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.Image")));
             this.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpload.Location = new System.Drawing.Point(12, 63);
+            this.btnUpload.Location = new System.Drawing.Point(9, 80);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(153, 65);
+            this.btnUpload.Size = new System.Drawing.Size(101, 53);
             this.btnUpload.TabIndex = 0;
             this.btnUpload.Text = "Upload";
             this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -81,9 +83,10 @@ namespace DataOrganization
             this.btnLoadAll.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadAll.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadAll.Image")));
             this.btnLoadAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadAll.Location = new System.Drawing.Point(438, 227);
+            this.btnLoadAll.Location = new System.Drawing.Point(328, 213);
+            this.btnLoadAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoadAll.Name = "btnLoadAll";
-            this.btnLoadAll.Size = new System.Drawing.Size(142, 46);
+            this.btnLoadAll.Size = new System.Drawing.Size(106, 37);
             this.btnLoadAll.TabIndex = 2;
             this.btnLoadAll.Text = "Refresh";
             this.btnLoadAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -99,18 +102,20 @@ namespace DataOrganization
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 140);
+            this.label1.Location = new System.Drawing.Point(16, 143);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 17);
+            this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Files";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(976, 140);
+            this.label2.Location = new System.Drawing.Point(732, 143);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Fields";
             // 
@@ -122,13 +127,14 @@ namespace DataOrganization
             this.dataGridViewFile1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.FileName});
-            this.dataGridViewFile1.Location = new System.Drawing.Point(12, 160);
+            this.dataGridViewFile1.Location = new System.Drawing.Point(9, 159);
+            this.dataGridViewFile1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewFile1.Name = "dataGridViewFile1";
             this.dataGridViewFile1.ReadOnly = true;
             this.dataGridViewFile1.RowHeadersWidth = 51;
             this.dataGridViewFile1.RowTemplate.Height = 24;
             this.dataGridViewFile1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewFile1.Size = new System.Drawing.Size(355, 360);
+            this.dataGridViewFile1.Size = new System.Drawing.Size(266, 292);
             this.dataGridViewFile1.TabIndex = 6;
             this.dataGridViewFile1.SelectionChanged += new System.EventHandler(this.dataGridViewProdAnal1_SelectionChanged);
             // 
@@ -148,6 +154,7 @@ namespace DataOrganization
             this.FileName.MinimumWidth = 6;
             this.FileName.Name = "FileName";
             this.FileName.ReadOnly = true;
+            this.FileName.Width = 79;
             // 
             // dataGridViewField1
             // 
@@ -158,70 +165,15 @@ namespace DataOrganization
             this.IdFieldFile1,
             this.IdFieldFile2,
             this.FieldName});
-            this.dataGridViewField1.Location = new System.Drawing.Point(636, 160);
+            this.dataGridViewField1.Location = new System.Drawing.Point(477, 159);
+            this.dataGridViewField1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewField1.Name = "dataGridViewField1";
             this.dataGridViewField1.ReadOnly = true;
             this.dataGridViewField1.RowHeadersWidth = 51;
             this.dataGridViewField1.RowTemplate.Height = 24;
             this.dataGridViewField1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewField1.Size = new System.Drawing.Size(614, 360);
+            this.dataGridViewField1.Size = new System.Drawing.Size(460, 292);
             this.dataGridViewField1.TabIndex = 7;
-            // 
-            // btnLoadFields
-            // 
-            this.btnLoadFields.Location = new System.Drawing.Point(470, 319);
-            this.btnLoadFields.Name = "btnLoadFields";
-            this.btnLoadFields.Size = new System.Drawing.Size(64, 89);
-            this.btnLoadFields.TabIndex = 8;
-            this.btnLoadFields.Text = ">>";
-            this.btnLoadFields.UseVisualStyleBackColor = true;
-            this.btnLoadFields.Click += new System.EventHandler(this.btnLoadFields_Click);
-            // 
-            // ProdDataChart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.ProdDataChart1.ChartAreas.Add(chartArea1);
-            this.ProdDataChart1.Location = new System.Drawing.Point(45, 526);
-            this.ProdDataChart1.Name = "ProdDataChart1";
-            this.ProdDataChart1.Size = new System.Drawing.Size(1139, 269);
-            this.ProdDataChart1.TabIndex = 9;
-            this.ProdDataChart1.Text = "Production Analysis";
-            // 
-            // progressBarProdAnal
-            // 
-            this.progressBarProdAnal.Location = new System.Drawing.Point(415, 88);
-            this.progressBarProdAnal.Name = "progressBarProdAnal";
-            this.progressBarProdAnal.Size = new System.Drawing.Size(453, 40);
-            this.progressBarProdAnal.Step = 1;
-            this.progressBarProdAnal.TabIndex = 10;
-            // 
-            // btnGenerateChart
-            // 
-            this.btnGenerateChart.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.btnGenerateChart.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateChart.Image")));
-            this.btnGenerateChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerateChart.Location = new System.Drawing.Point(404, 464);
-            this.btnGenerateChart.Name = "btnGenerateChart";
-            this.btnGenerateChart.Size = new System.Drawing.Size(204, 56);
-            this.btnGenerateChart.TabIndex = 11;
-            this.btnGenerateChart.Text = "Generate Chart";
-            this.btnGenerateChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGenerateChart.UseVisualStyleBackColor = true;
-            this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
-            // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.btnDeleteAll.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAll.Image")));
-            this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteAll.Location = new System.Drawing.Point(210, 63);
-            this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(148, 65);
-            this.btnDeleteAll.TabIndex = 12;
-            this.btnDeleteAll.Text = "Delete All";
-            this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteAll.UseVisualStyleBackColor = true;
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // IdFieldFile1
             // 
@@ -247,12 +199,74 @@ namespace DataOrganization
             this.FieldName.ReadOnly = true;
             this.FieldName.Width = 125;
             // 
+            // btnLoadFields
+            // 
+            this.btnLoadFields.Location = new System.Drawing.Point(352, 288);
+            this.btnLoadFields.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadFields.Name = "btnLoadFields";
+            this.btnLoadFields.Size = new System.Drawing.Size(48, 72);
+            this.btnLoadFields.TabIndex = 8;
+            this.btnLoadFields.Text = ">>";
+            this.btnLoadFields.UseVisualStyleBackColor = true;
+            this.btnLoadFields.Click += new System.EventHandler(this.btnLoadFields_Click);
+            // 
+            // ProdDataChart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.ProdDataChart1.ChartAreas.Add(chartArea1);
+            this.ProdDataChart1.Location = new System.Drawing.Point(34, 456);
+            this.ProdDataChart1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProdDataChart1.Name = "ProdDataChart1";
+            this.ProdDataChart1.Size = new System.Drawing.Size(854, 219);
+            this.ProdDataChart1.TabIndex = 9;
+            this.ProdDataChart1.Text = "Production Analysis";
+            // 
+            // progressBarProdAnal
+            // 
+            this.progressBarProdAnal.Location = new System.Drawing.Point(311, 101);
+            this.progressBarProdAnal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBarProdAnal.Name = "progressBarProdAnal";
+            this.progressBarProdAnal.Size = new System.Drawing.Size(340, 32);
+            this.progressBarProdAnal.Step = 1;
+            this.progressBarProdAnal.TabIndex = 10;
+            // 
+            // btnGenerateChart
+            // 
+            this.btnGenerateChart.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
+            this.btnGenerateChart.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateChart.Image")));
+            this.btnGenerateChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerateChart.Location = new System.Drawing.Point(303, 406);
+            this.btnGenerateChart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerateChart.Name = "btnGenerateChart";
+            this.btnGenerateChart.Size = new System.Drawing.Size(153, 46);
+            this.btnGenerateChart.TabIndex = 11;
+            this.btnGenerateChart.Text = "Generate Chart";
+            this.btnGenerateChart.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerateChart.UseVisualStyleBackColor = true;
+            this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
+            // 
+            // btnDeleteAll
+            // 
+            this.btnDeleteAll.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
+            this.btnDeleteAll.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAll.Image")));
+            this.btnDeleteAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteAll.Location = new System.Drawing.Point(114, 80);
+            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteAll.Name = "btnDeleteAll";
+            this.btnDeleteAll.Size = new System.Drawing.Size(117, 53);
+            this.btnDeleteAll.TabIndex = 12;
+            this.btnDeleteAll.Text = "Delete All";
+            this.btnDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
+            // 
             // cbWithoutZero
             // 
             this.cbWithoutZero.AutoSize = true;
-            this.cbWithoutZero.Location = new System.Drawing.Point(1281, 186);
+            this.cbWithoutZero.Location = new System.Drawing.Point(961, 180);
+            this.cbWithoutZero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbWithoutZero.Name = "cbWithoutZero";
-            this.cbWithoutZero.Size = new System.Drawing.Size(90, 21);
+            this.cbWithoutZero.Size = new System.Drawing.Size(70, 17);
             this.cbWithoutZero.TabIndex = 13;
             this.cbWithoutZero.Text = "Sem zero";
             this.cbWithoutZero.UseVisualStyleBackColor = true;
@@ -260,9 +274,10 @@ namespace DataOrganization
             // rbOrderCres
             // 
             this.rbOrderCres.AutoSize = true;
-            this.rbOrderCres.Location = new System.Drawing.Point(1281, 266);
+            this.rbOrderCres.Location = new System.Drawing.Point(961, 245);
+            this.rbOrderCres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbOrderCres.Name = "rbOrderCres";
-            this.rbOrderCres.Size = new System.Drawing.Size(93, 21);
+            this.rbOrderCres.Size = new System.Drawing.Size(73, 17);
             this.rbOrderCres.TabIndex = 14;
             this.rbOrderCres.TabStop = true;
             this.rbOrderCres.Text = "Crescente";
@@ -271,19 +286,30 @@ namespace DataOrganization
             // rbOrderDec
             // 
             this.rbOrderDec.AutoSize = true;
-            this.rbOrderDec.Location = new System.Drawing.Point(1281, 294);
+            this.rbOrderDec.Location = new System.Drawing.Point(961, 268);
+            this.rbOrderDec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbOrderDec.Name = "rbOrderDec";
-            this.rbOrderDec.Size = new System.Drawing.Size(109, 21);
+            this.rbOrderDec.Size = new System.Drawing.Size(86, 17);
             this.rbOrderDec.TabIndex = 15;
             this.rbOrderDec.TabStop = true;
             this.rbOrderDec.Text = "Decrescente";
             this.rbOrderDec.UseVisualStyleBackColor = true;
             // 
+            // btnLogo
+            // 
+            this.btnLogo.Image = ((System.Drawing.Image)(resources.GetObject("btnLogo.Image")));
+            this.btnLogo.Location = new System.Drawing.Point(9, 12);
+            this.btnLogo.Name = "btnLogo";
+            this.btnLogo.Size = new System.Drawing.Size(222, 63);
+            this.btnLogo.TabIndex = 16;
+            this.btnLogo.UseVisualStyleBackColor = true;
+            // 
             // FormProdAnal1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1752, 1055);
+            this.ClientSize = new System.Drawing.Size(1314, 609);
+            this.Controls.Add(this.btnLogo);
             this.Controls.Add(this.rbOrderDec);
             this.Controls.Add(this.rbOrderCres);
             this.Controls.Add(this.cbWithoutZero);
@@ -299,6 +325,7 @@ namespace DataOrganization
             this.Controls.Add(this.btnLoadAll);
             this.Controls.Add(this.btnUpload);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormProdAnal1";
             this.Text = "Análise de Produção";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -334,6 +361,7 @@ namespace DataOrganization
         private System.Windows.Forms.CheckBox cbWithoutZero;
         private System.Windows.Forms.RadioButton rbOrderCres;
         private System.Windows.Forms.RadioButton rbOrderDec;
+        private System.Windows.Forms.Button btnLogo;
     }
 }
 
