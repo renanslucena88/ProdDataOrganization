@@ -272,7 +272,7 @@
                     {
                         if (double.TryParse(item.FieldContent, out double tmpContent))
                         {
-                            ProdDataChart1.Series[0].Points.Add(tmpContent);
+                            ProdDataChart1.Series[0].Points.AddXY(item.Field.Field1, tmpContent);
                         }
                     }
                 }
@@ -284,8 +284,7 @@
                     {
                         if (double.TryParse(item.FieldContent, out double tmpContent))
                         {
-                            ProdDataChart1.Series[1].Points.Add(tmpContent);
-                            ProdDataChart1.Series[1].LegendText = item.FieldContent;
+                            ProdDataChart1.Series[1].Points.Add( tmpContent);
                         }
 
                     }
@@ -305,6 +304,7 @@
         {
             ProdAnalBusiness business = new ProdAnalBusiness();
             business.DeleteAllRegisters();
+
         }
     }
 }
